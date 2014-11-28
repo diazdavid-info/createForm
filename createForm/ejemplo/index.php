@@ -18,18 +18,28 @@ $option = array(
 				'1' => array(
 						'type' => 'text',
 						'id' => 'nombre',
+						'class' => 'line',
 						'name' => 'nombre',
 						'value' => '',
 						'placeholder' => 'David'
-						
 				),
 				'2' => array(
 						'type' => 'text',
 						'id' => 'apellidos',
+						'class' => 'line',
 						'name' => 'apellidos',
 						'value' => '',
 						'placeholder' => 'Díaz'
-			
+				),
+				'3' => array(
+						'type' => 'hidden',
+						'id' => 'oculto',
+						'value' => 'oculto',
+				),
+				'4' => array(
+						'type' => 'search',
+						'id' => 'busqueda',
+						'value' => 'Buscar',
 				)
 					
 			)
