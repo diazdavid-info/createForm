@@ -6,16 +6,14 @@
  *
  */
 
-namespace createForm\form;
+namespace createForm\libraryCraeteForm;
 
 class ExceptionForm extends \Exception{
 	
 	/**
 	 * Constructor reservado para posibles mejoras.
 	 */
-	function __construct(){
-		
-	}
+	function __construct(){}
 	
 	/**
 	 * Función que ckequea si los atributos que tiene la etiqueta <form> son correctos.

@@ -1,6 +1,17 @@
 <?php
+/**
+ * 
+ * @author David Díaz
+ * @version 1.0
+ *
+ */
 
-namespace createForm\form;
+namespace createForm\libraryCraeteForm;
+use createForm\form;
+ ///Applications/XAMPP/xamppfiles/htdocs/git/createForm/createForm/libraryCreateForm/ActionForm.php on line 11
+//echo "hola" . $option;
+
+
 session_start();
 include_once('ExceptionForm.php');
 include_once('Form.php');
@@ -54,10 +65,12 @@ class ActionForm{
 		return $result;
 	}
 	
-	public function addForm(array $option){
-		$this->headForm($option['option-form']);
-		$this->bodyForm($option['content-form']);
-		$this->footerForm();
+	public function addForm($form){
+		require_once 'form/form1.php';
+		var_dump($option);
+// 		$this->headForm($option['option-form']);
+// 		$this->bodyForm($option['content-form']);
+// 		$this->footerForm();
 	}
 	
 	public function printForm(){
