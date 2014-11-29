@@ -1,7 +1,9 @@
 <?php
 
 namespace createForm\form;
+session_start();
 include_once('ExceptionForm.php');
+include_once('Form.php');
 
 class ActionForm{
 	
@@ -27,7 +29,9 @@ class ActionForm{
 				case "input":
 					foreach ($body[$key] as $input){
 						$this->exceptionForm->checkInput($input);
-						$this->form[$this->positionForm++] = $this->createLine($input, "input");
+						$beforeInput = (isset($input['before']))? $input['before'] : "";
+						$afterInput = (isset($input['after']))? $input['after'] : "";
+						$this->form[$this->positionForm++] = $this->createLine($input, "input", $beforeInput, $afterInput);
 					}
 					break;
 			}
@@ -36,14 +40,17 @@ class ActionForm{
 	
 	private function footerForm(){
 		$this->form[$this->positionForm++] = "</form>";
+		//$_SESSION['prueba'] = "david";
 	}
 	
-	private function createLine(array $arg, $type){
-		$result = "<{$type} ";
+	private function createLine(array $arg, $type, $before = "", $after = ""){
+		$result = "{$before}<{$type} ";
 		foreach ($arg as $key => $value){
-			$result .= "{$key}='{$value}' ";
+			if(!in_array($key, Form::getAttrPrivate()) ){
+				$result .= "{$key}='{$value}' ";
+			}
 		}
-		$result .= "/>";
+		$result .= "/>{$after}";
 		return $result;
 	}
 	

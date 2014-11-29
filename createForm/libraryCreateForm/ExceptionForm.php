@@ -6,7 +6,7 @@ class ExceptionForm extends \Exception{
 	
 	private $attrForm = array('accept-charset','action','autocomplete','enctype','method','name','novalidate','target','accept','id');
 	private $tagForm = array('input');
-	private $attrInput = array('accept','alt','autocomplete','autofocus','checked','class','dirname','disabled','form','formaction','formenctype','formmethod','formnovalidate',
+	private $attrInput = array('accept','after','alt','autocomplete','autofocus','before','checked','class','dirname','disabled','form','formaction','formenctype','formmethod','formnovalidate',
 			'formtarget','height','id','inputmode','list','max','maxlength','min','minlength','multiple','name','pattern','placeholder','readonly','required','size','src','step',
 			'type','value','width','title');
 	

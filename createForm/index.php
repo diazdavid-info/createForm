@@ -3,6 +3,8 @@
 namespace createForm\form;
 include 'libraryCreateForm/ActionForm.php';
 
+echo "Prueba: " . $_SESSION['prueba'];
+
 $forma = new ActionForm();
 
 $option = array(
@@ -21,7 +23,9 @@ $option = array(
 						'class' => 'line',
 						'name' => 'nombre',
 						'value' => '',
-						'placeholder' => 'David'
+						'placeholder' => 'David',
+						'before' => '<span>Nombre</span>',
+						'after' => '<br />'
 				),
 				'2' => array(
 						'type' => 'text',
@@ -29,7 +33,9 @@ $option = array(
 						'class' => 'line',
 						'name' => 'apellidos',
 						'value' => '',
-						'placeholder' => 'Díaz'
+						'placeholder' => 'Díaz',
+						'before' => '<span>Apellidos</span>',
+						'after' => '<br />'
 				),
 				'3' => array(
 						'type' => 'hidden',
@@ -40,8 +46,43 @@ $option = array(
 						'type' => 'search',
 						'id' => 'busqueda',
 						'value' => 'Buscar',
-				)
-					
+						'before' => '<span>Buscar</span>',
+						'after' => '<br />'
+				),
+				'5' => array(
+						'type' => 'tel',
+						'id' => 'telefono',
+						'value' => '',
+						'placeholder' => 'telefono',
+						'before' => '<span>Telefono</span>',
+						'after' => '<br />'
+				),
+				'6' => array(
+						'type' => 'radio',
+						'name' => 'sex',
+						'value' => 'male',
+						'before' => '<span>Hombre</span>',
+						'after' => '<br />'
+				),
+				'7' => array(
+						'type' => 'radio',
+						'name' => 'sex',
+						'value' => 'female',
+						'before' => '<span>Mujer</span>',
+						'after' => '<br />'
+				),
+				'8' => array(
+						'type' => 'checkbox',
+						'name' => 'direccion',
+						'value' => 'direccion',
+						'before' => '<span>Dirección</span>',
+						'after' => '<br />'
+				),
+				'9' => array(
+						'type' => 'submit',
+						'id' => 'boton',
+						'value' => 'Enviar',
+				),
 			)
 				
 		)
