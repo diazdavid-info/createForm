@@ -89,4 +89,8 @@ class ActionForm{
 	public function isAddForm($nameForm){
 		return (isset($_SESSION[$nameForm]))? true : false;
 	}
+	
+	public function validateForm($nameForm,$post){
+		$form = $_SESSION[$nameForm];
+	}
 }

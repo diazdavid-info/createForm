@@ -13,7 +13,11 @@ if(!$createForm->isAddForm('form1')) $createForm->addForm("form1");
 </head>
 <body>
 	<div id="wrapper">
-		<?php $createForm->printForm('form1'); ?>
+		<?php if(!$_POST): ?>
+			<?php $createForm->printForm('form1'); ?>
+		<?php else: ?>
+			<?php $createForm->validateForm('form1',$_POST); ?>
+		<?php endif; ?>
 	</div>
 </body>
 </html>
