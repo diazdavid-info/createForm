@@ -2,14 +2,8 @@
 
 include_once 'libraryCreateForm/LinkCreateForm.php';
 
-$createForm->addForm("form1");
+if(!$createForm->isAddForm('form1')) $createForm->addForm("form1");
 
-//echo "Prueba: " . $_SESSION['prueba'];
-
-//$forma = new ActionForm();
-
-
-//$forma->addForm($option);
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +13,7 @@ $createForm->addForm("form1");
 </head>
 <body>
 	<div id="wrapper">
-		<?php //$forma->printForm(); ?>
+		<?php $createForm->printForm('form1'); ?>
 	</div>
 </body>
 </html>

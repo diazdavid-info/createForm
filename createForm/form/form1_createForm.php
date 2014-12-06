@@ -2,7 +2,7 @@
 
 namespace createForm\form;
 
-$option = array(
+$form1_option = array(
 		'option-form' => array(
 				'action' => 'index.php',
 				'method' => 'POST',

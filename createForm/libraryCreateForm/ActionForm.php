@@ -7,7 +7,7 @@
  */
 
 namespace createForm\libraryCraeteForm;
-use createForm\form;
+//use createForm\form;
  ///Applications/XAMPP/xamppfiles/htdocs/git/createForm/createForm/libraryCreateForm/ActionForm.php on line 11
 //echo "hola" . $option;
 
@@ -66,17 +66,27 @@ class ActionForm{
 	}
 	
 	public function addForm($form){
-		require_once 'form/form1.php';
-		var_dump($option);
-// 		$this->headForm($option['option-form']);
-// 		$this->bodyForm($option['content-form']);
-// 		$this->footerForm();
+		require_once "form/{$form}_createForm.php";
+		$nameVar = "{$form}_option";
+		$argForm = $$nameVar;
+		$this->headForm($argForm['option-form']);
+		$this->bodyForm($argForm['content-form']);
+		$this->footerForm();
+		$_SESSION[$form] = $this->form;
 	}
 	
-	public function printForm(){
-		foreach ($this->form as $f){
+	public function printForm($nameForm){
+		if(isset($_SESSION[$nameForm])){
+			$form = $_SESSION[$nameForm];
+		}else{
+			$form = $this->form;
+		}
+		foreach ($form as $f){
 			echo $f;
 		}
-		//print_r($this->form);
+	}
+	
+	public function isAddForm($nameForm){
+		return (isset($_SESSION[$nameForm]))? true : false;
 	}
 }
