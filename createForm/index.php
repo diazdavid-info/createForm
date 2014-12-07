@@ -3,7 +3,7 @@
 include_once 'libraryCreateForm/LinkCreateForm.php';
 
 if(!$createForm->isAddForm('form1')) $createForm->addForm("form1");
-
+//unset($_SESSION['form1']);
 ?>
 
 <!DOCTYPE html>

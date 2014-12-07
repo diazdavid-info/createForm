@@ -20,7 +20,8 @@ $form1_option = array(
 								'value' => '',
 								'placeholder' => 'David',
 								'before' => '<span>Nombre</span>',
-								'after' => '<br />'
+								'after' => '<br />',
+								'validation' => array('class' => 'invalid','lenghtMin' => 10, 'lenghtMax' => 15)
 						),
 						'2' => array(
 								'type' => 'text',

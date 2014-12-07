@@ -7,9 +7,6 @@
  */
 
 namespace createForm\libraryCraeteForm;
-//use createForm\form;
- ///Applications/XAMPP/xamppfiles/htdocs/git/createForm/createForm/libraryCreateForm/ActionForm.php on line 11
-//echo "hola" . $option;
 
 
 session_start();
@@ -20,12 +17,16 @@ class ActionForm{
 	
 	private $positionForm;
 	private $form;
+	private $formValidate;
 	private $exceptionForm;
+	private $optionForm;
 	
 	function __construct(){
 		$this->positionForm = 0;
 		$this->form = array();
+		$this->formValidate = array();
 		$this->exceptionForm = new ExceptionForm();
+		$this->optionForm = array();
 	}
 	
 	private function headForm(array $attr){
@@ -51,7 +52,6 @@ class ActionForm{
 	
 	private function footerForm(){
 		$this->form[$this->positionForm++] = "</form>";
-		//$_SESSION['prueba'] = "david";
 	}
 	
 	private function createLine(array $arg, $type, $before = "", $after = ""){
@@ -68,11 +68,12 @@ class ActionForm{
 	public function addForm($form){
 		require_once "form/{$form}_createForm.php";
 		$nameVar = "{$form}_option";
-		$argForm = $$nameVar;
-		$this->headForm($argForm['option-form']);
-		$this->bodyForm($argForm['content-form']);
+		$this->optionForm = $$nameVar;
+		$this->headForm($this->optionForm['option-form']);
+		$this->bodyForm($this->optionForm['content-form']);
 		$this->footerForm();
 		$_SESSION[$form] = $this->form;
+		unset($_SESSION[$form]); //Eliminar esta linea
 	}
 	
 	public function printForm($nameForm){
@@ -91,6 +92,20 @@ class ActionForm{
 	}
 	
 	public function validateForm($nameForm,$post){
-		$form = $_SESSION[$nameForm];
+		
+		//var_dump($this->optionForm);
+// 		foreach ($this->optionForm['content-form'] as $content){
+// 			foreach ($content as $element){
+// 				echo "<pre>";
+// 				print_r($element);
+// 				echo "</pre><br />";
+// 			}
+// 		}
+		var_dump($post);
+		//$form = $_SESSION[$nameForm];
+	}
+	
+	private function validateLenght(){
+		
 	}
 }
