@@ -9,5 +9,6 @@
 namespace createForm\libraryCraeteForm;
 
 class ConstantElement{
+	const FORM = 'form';
 	const INPUT = 'input';
 }

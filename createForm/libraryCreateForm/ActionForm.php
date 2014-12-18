@@ -12,6 +12,8 @@ namespace createForm\libraryCraeteForm;
 session_start();
 include_once('ExceptionForm.php');
 include_once('Form.php');
+include_once('Element.php');
+include_once('ConstantElement.php');
 
 class ActionForm{
 	
@@ -33,10 +35,9 @@ class ActionForm{
 // 		$this->exceptionForm->checkForm($attr);
 // 		$this->form[$this->positionForm++] = $this->createLine($attr, "form");
 
-		$element = new Element("form");
-		echo "hola";
-		foreach ($attr as $atribute){
-			echo $atribute;
+		$element = new Element(ConstantElement::FORM);
+		foreach ($attr as $key => $value){
+			echo "key: " . $key . ", value: " . $value . "<br />";
 		}
 	}
 	
