@@ -16,6 +16,17 @@ class Form{
 			'min','minlength','multiple','name','pattern','placeholder','readonly','required','size','src','step','type','value','validation','width','title');
 	private static $attrPrivate = array('after','before','validation');
 	
+	private $element = array();
+	private $name;
+	
+	public function setName($name){
+		$this->name = $name;
+	}
+	
+	public function addElement(Element $element){
+		$this->element[] = $element;
+	}
+	
 	public static function getAttrForm(){
 		return self::$attrForm;
 	}
@@ -31,4 +42,6 @@ class Form{
 	public static function getAttrPrivate(){
 		return self::$attrPrivate;
 	}
+	
+	
 }

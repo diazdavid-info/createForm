@@ -23,21 +23,15 @@ class ActionForm{
 	
 	function __construct(){
 		$this->positionForm = 0;
-		$this->form = new Form();
+		$this->form = array();
 		$this->formValidate = array();
 		$this->exceptionForm = new ExceptionForm();
 		$this->optionForm = array();
 	}
 	
 	private function headForm(array $attr){
-// 		$this->exceptionForm->checkForm($attr);
-// 		$this->form[$this->positionForm++] = $this->createLine($attr, "form");
-
-		$element = new Element("form");
-		echo "hola";
-		foreach ($attr as $atribute){
-			echo $atribute;
-		}
+		$this->exceptionForm->checkForm($attr);
+		$this->form[$this->positionForm++] = $this->createLine($attr, "form");
 	}
 	
 	private function bodyForm(array $body){
@@ -71,26 +65,15 @@ class ActionForm{
 		return $result;
 	}
 	
-// 	public function addForm($form){
-// 		require_once "form/{$form}_createForm.php";
-// 		$nameVar = "{$form}_option";
-// 		$this->optionForm = $$nameVar;
-// 		$this->headForm($this->optionForm['option-form']);
-// 		$this->bodyForm($this->optionForm['content-form']);
-// 		$this->footerForm();
-// 		$_SESSION[$form] = $this->form;
-// 		//unset($_SESSION[$form]); //Eliminar esta linea
-// 	}
-
 	public function addForm($form){
 		require_once "form/{$form}_createForm.php";
 		$nameVar = "{$form}_option";
 		$this->optionForm = $$nameVar;
-		
-		$this->form->setName($form);
-		
 		$this->headForm($this->optionForm['option-form']);
-		
+		$this->bodyForm($this->optionForm['content-form']);
+		$this->footerForm();
+		$_SESSION[$form] = $this->form;
+		//unset($_SESSION[$form]); //Eliminar esta linea
 	}
 	
 	public function printForm($nameForm){
